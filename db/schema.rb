@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_18_065321) do
+ActiveRecord::Schema.define(version: 2018_05_22_070341) do
+
+  create_table "members", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_members_on_email", unique: true
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
